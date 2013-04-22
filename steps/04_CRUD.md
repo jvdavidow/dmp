@@ -47,4 +47,4 @@ resources :posts
 root :to => 'posts#index'
 ```
 
-
+Modified views and controllers.
