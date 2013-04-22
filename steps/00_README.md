@@ -17,3 +17,7 @@ Removed `README.rdoc`, added [README.md](README.md).
 Added [Roadmap](ROADMAP.md).
 
 Added "remote".
+
+## Change Log
+
+If a file has a change log, then you _should_ be able to look at the blame of that line and see which commit changed the file it is talking about. I'll try to add in SHA under it when I can / when I remember.

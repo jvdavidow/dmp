@@ -16,3 +16,7 @@ Seed finished
 11 posts created
 68 comments created
 ```
+
+## Change Log
+
+Fixed the Faker in the seedfile.
