@@ -1,5 +1,7 @@
 # Basic Models
 
+662edc8903efed3cfe380980d5f5ef9510e8a405
+
 ```
 % rails g model post title:string body:text
       invoke  active_record
