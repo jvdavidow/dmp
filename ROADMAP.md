@@ -4,7 +4,7 @@ The following is the basic outline of how we'll build the app. Checkpoints will 
 
 ## Basic Models
 
-Build out `Post` and `Comment`. Introduce MVC. Create posts and comments. Quick overview of SQL.
+Build out `Post` and `Comment`. Create posts and comments. Quick overview of SQL.
 
 ## Seed File
 
