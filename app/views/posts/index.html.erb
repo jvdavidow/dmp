@@ -1,5 +1,15 @@
-<h1>All Posts</h1>
+<%= content_for :title do %>
+  All Posts
+  <%= link_to "New Post", new_post_path, class: 'btn btn-primary btn-mini' %>
+<% end %>
 
 <% @posts.each do |post| %>
-  <%= link_to post.title, post %> <br/>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to post.title, post %>
+      </h4>
+      <p><%= post.created_at %></p>
+    </div>
+  </div>
 <% end %>

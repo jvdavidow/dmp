@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>BlocReddit</title>
+  <title>Bloc Reddit</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 
-<%= yield %>
+    <div class="row page-header">
+      <div class="span12">
+        <h1>
+          <%= yield :title %>
+        </h1>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li><%= link_to "Posts", posts_path %></li>
+        </ul>
+      </div>
+    </div>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>
