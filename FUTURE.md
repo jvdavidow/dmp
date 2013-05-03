@@ -10,4 +10,3 @@ What the /lib folder is used for.
 
 Polymorphic comments. Comment on comments.
 
-Running Postgress locally

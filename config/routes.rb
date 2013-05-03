@@ -1,9 +1,12 @@
 BlocReddit::Application.routes.draw do
+  
+  resources :topics do
+    resources :posts, except: [:index]
+  end
+
   devise_for :users
 
-  get "welcome/index"
-  get "welcome/about"
+  match "about" => 'welcome#about', via: :get
 
-  resources :posts
   root :to => 'welcome#index'
 end
