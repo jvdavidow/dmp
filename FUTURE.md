@@ -10,3 +10,4 @@ What the /lib folder is used for.
 
 Polymorphic comments. Comment on comments.
 
+Inline validation statements. Show how to get an error for a given field.
