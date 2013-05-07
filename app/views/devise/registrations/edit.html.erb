@@ -21,6 +21,13 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+<div>
+    <%= image_tag(current_user.avatar.small.url) if current_user.avatar? %>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

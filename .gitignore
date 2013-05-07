@@ -14,5 +14,8 @@
 /log/*.log
 /tmp
 
-# Sensative data
-config/initializers/setup_mail.rb
+# Carrierwave images
+public/uploads
+
+# Ignore application configuration
+/config/application.yml
