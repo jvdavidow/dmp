@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize! :create, @topic, message: "You need to be an admin to do that."
   end
 
   def show
@@ -14,10 +15,12 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    authorize! :update, @topic, message: "You need to be an admin to do that."
   end
 
   def create
     @topic = Topic.new(params[:topic])
+    authorize! :create, @topic, message: "You need to be an admin to do that."
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
       redirect_to @topic
@@ -29,11 +32,25 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
+    authorize! :update, @topic, message: "You need to own the topic to update it."
     if @topic.update_attributes(params[:topic])
       redirect_to @topic
     else
-      flash[:error] = "Error saving topic. Please try again"
+      flash[:error] = "Error saving topic. Please try agai.n"
       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    name = @topic.name
+    authorize! :destroy, @topic, message: "You need to own the topic to delete it."
+    if @topic.delete
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "Was unable to delete topic. Please try again."
+      render :show
     end
   end
 end

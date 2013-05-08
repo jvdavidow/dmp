@@ -14,6 +14,7 @@ class Ability
     # Moderators can delete any post
     if user.role? :moderator
       can :destroy, Post
+      can :destroy, Comment
     end
 
     # Admins can do anything
