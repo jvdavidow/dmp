@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
   has_many :posts
   has_many :comments
+  has_many :votes, dependent: :destroy
   before_create :set_member
 
   mount_uploader :avatar, AvatarUploader
