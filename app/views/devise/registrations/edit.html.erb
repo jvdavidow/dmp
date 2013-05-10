@@ -22,6 +22,7 @@
       </div>
     </div>
   <% end %>
+  <% unless current_user.provider? %>
   <div class="control-group">
     <%= f.label :password, class: 'control-label' %>
     <div class="controls">
@@ -34,12 +35,7 @@
       <%= f.password_field :password_confirmation %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :current_password, class: 'control-label' %>
-    <div class="controls">
-      <%= f.password_field :current_password %> (needed to confirm changes)
-    </div>
-  </div>
+  <% end %>
   <% if current_user.avatar? %>
     <div class="control-group">
       <p class="control-label">Current avatar</p>
