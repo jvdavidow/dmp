@@ -18,7 +18,14 @@ http://embed.ly/embed
 
 HTML5 Drag and drop areas
 
+Responsive design
+
+Sending emails as a background job
 
 ## Maybe a small checkpoint
 
 Remove password as requirement for updating user - https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password
+
+Make the vote highlight for ones you've voted on.
+
+Customizing bootstrap
