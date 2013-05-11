@@ -36,6 +36,17 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.top_rated
+    self.select('users.*'). # Select all attributes of the user
+        select('COUNT(DISTINCT comments.id) AS comments_count'). # Create new "column" where we count the distinct comments
+        select('COUNT(DISTINCT posts.id) AS posts_count'). # Create another column for posts
+        select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank'). # Another column where we add them together to sort
+        joins(:posts). # Need to join posts to count them
+        joins(:comments). # Join comments to count them
+        group('users.id'). # Tell Postgres how we want to group them together so it knows what to combine into "one" row
+        order('rank DESC') # How to sort them
+  end
+
   ROLES = %w[member moderator admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
@@ -48,6 +59,7 @@ class User < ActiveRecord::Base
   def voted(post)
     self.votes.where(post_id: post.id).first
   end
+
 
 private
 
