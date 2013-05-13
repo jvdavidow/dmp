@@ -22,10 +22,4 @@ Responsive design
 
 Sending emails as a background job
 
-## Maybe a small checkpoint
-
-Remove password as requirement for updating user - https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-account-without-providing-a-password
-
-Make the vote highlight for ones you've voted on.
-
-Customizing bootstrap
+Improve the speed of tests by only doing transations on one that need it?

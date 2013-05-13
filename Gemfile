@@ -7,11 +7,19 @@ gem 'rails', '3.2.12'
 
 group :development do
   gem 'sqlite3'
+  gem 'faker'
 end
 
-gem 'faker'
 group :production do
   gem 'pg'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
 end
 
 gem 'devise'

@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
         select('COUNT(DISTINCT comments.id) AS comments_count'). # Create new "column" where we count the distinct comments
         select('COUNT(DISTINCT posts.id) AS posts_count'). # Create another column for posts
         select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank'). # Another column where we add them together to sort
-        joins(:posts). # Need to join posts to count them
-        joins(:comments). # Join comments to count them
+        joins('LEFT OUTER JOIN posts ON posts.user_id = users.id'). # Need to join posts to count them
+        joins('LEFT OUTER JOIN comments ON comments.user_id = users.id'). # Join comments to count them
         group('users.id'). # Tell Postgres how we want to group them together so it knows what to combine into "one" row
         order('rank DESC') # How to sort them
   end
