@@ -11,11 +11,21 @@ class CommentsController < ApplicationController
     
     authorize! :create, @comment, message: "You need be signed in to do that."
     if @comment.save
-      flash[:notice] = "Comment was created."
-      redirect_to [@topic, @post]
+      respond_with(@comment) do |f|
+        f.html do
+          flash[:notice] = "Comment was created."
+          redirect_to [@topic, @post]
+        end
+        f.js { render :create }
+      end
     else
-      flash[:error] = "There was an error saving the comment. Please try again."
-      render 'topics/posts/show'
+      respond_with(@comment) do |f|
+        f.html do
+          render 'topics/posts/show'
+          flash[:error] = "There was an error saving the comment. Please try again."
+        end
+        f.js { render :create }
+      end
     end
   end
 
