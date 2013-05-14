@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510025251) do
+ActiveRecord::Schema.define(:version => 20130514162344) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130510025251) do
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "favorites", :force => true do |t|
     t.integer  "post_id"
@@ -43,6 +44,9 @@ ActiveRecord::Schema.define(:version => 20130510025251) do
     t.string   "image"
     t.float    "rank"
   end
+
+  add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "topics", :force => true do |t|
     t.string   "name"
