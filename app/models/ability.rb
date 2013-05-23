@@ -25,6 +25,7 @@ class Ability
     end
 
     can :read, :all
+    cannot :read, Topic, public: false
 
   end
 end
