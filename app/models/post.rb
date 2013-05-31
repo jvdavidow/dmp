@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :title, :topic, :image, :image_cache
 
   default_scope order('rank DESC')
+  scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true') }
+  
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
