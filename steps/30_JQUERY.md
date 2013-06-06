@@ -92,7 +92,7 @@ $(this).hide();
 
 But what if we want to show/hide. You could change it to:
 
-```
+```js
   $(".js-add-comment").click(function() {
     if ($(".js-new-comment").is(":visible")) {
       $(".js-new-comment").slideUp();

@@ -8,24 +8,18 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comments.build(params[:comment])
     @comment.post = @post
+    @new_comment = Comment.new
     
     authorize! :create, @comment, message: "You need be signed in to do that."
+
     if @comment.save
-      respond_with(@comment) do |f|
-        f.html do
-          flash[:notice] = "Comment was created."
-          redirect_to [@topic, @post]
-        end
-        f.js { render :create }
-      end
+      flash[:notice] = "Comment was created."
     else
-      respond_with(@comment) do |f|
-        f.html do
-          render 'topics/posts/show'
-          flash[:error] = "There was an error saving the comment. Please try again."
-        end
-        f.js { render :create }
-      end
+      flash[:error] = "There was an error saving the comment. Please try again."
+    end
+
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
     end
   end
 
@@ -35,23 +29,16 @@ class CommentsController < ApplicationController
 
     @comment = @post.comments.find(params[:id])
     authorize! :destroy, @comment, message: "You need to own the comment to delete it."
+
     if @comment.destroy
-      respond_with do |f|
-        f.html do
-          flash[:notice] = "Comment was removed."
-          redirect_to [@topic, @post]
-        end
-        f.js { render :destroy }
-      end
+      flash[:notice] = "Comment was removed."
     else
-      respond_with do |f|
-        f.html do
-          flash[:error] = "Comment couldn't be deleted. Try again."
-          redirect_to [@topic, @post]
-        end
-        f.js { render :destroy }
-      end
+      flash[:error] = "Comment couldn't be deleted. Try again."
     end
 
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
+    end
   end
+
 end
