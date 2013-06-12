@@ -14,9 +14,8 @@
     
     <hr/>
 
-    <div class="js-comments">
-      <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
-      
+    <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+    <div class="js-comments">  
       <%= render partial: 'comments/comment', collection: @comments, locals: { topic: @topic, post: @post } %>
     </div>
     
