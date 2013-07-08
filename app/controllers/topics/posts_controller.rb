@@ -59,7 +59,7 @@ class Topics::PostsController < ApplicationController
       flash[:notice] = "\"#{title}\" was deleted successfully."
       redirect_to @topic
     else
-      flash[:error] = "Cannot delete a post if it has comments already."
+      flash[:error] = "There was an error deleting the post."
       render :show
     end
   end
