@@ -3,7 +3,7 @@
   <div>
     <%= link_to " ", 
       topic_post_up_vote_path(topic, post), 
-      class: "icon-chevron-up #{(vote && vote.up_vote?) ? 'voted' : '' }" %>
+      class: "icon-chevron-up #{(current_user.voted(post) && current_user.voted(post).up_vote?) ? 'voted' : '' }" %>
   </div>
   <div>
     <strong><%= post.points %></strong>
@@ -11,7 +11,7 @@
   <div>
     <%= link_to " ", 
       topic_post_down_vote_path(topic, post), 
-      class: "icon-chevron-down #{(vote && vote.down_vote?) ? 'voted' : '' }" %>
+      class: "icon-chevron-down #{(current_user.voted(post) && current_user.voted(post).down_vote?) ? 'voted' : '' }" %>
   </div>
 </div>
 <% end %>

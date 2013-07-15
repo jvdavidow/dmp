@@ -5,7 +5,6 @@ class Topics::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
-    @vote = current_user.voted(@post)
   end
 
   def new
