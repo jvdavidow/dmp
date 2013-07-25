@@ -1,4 +1,3 @@
-# Add gmail smtp for development
 if Rails.env.development?
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
