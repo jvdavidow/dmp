@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
 
-  attr_accessible :body, :title, :topic, :image, :image_cache
+  attr_accessible :body, :title, :topic, :image
 
   default_scope order('rank DESC')
   scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true') }
