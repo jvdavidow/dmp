@@ -52,6 +52,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :email_favorites, class: 'control-label' %>
+    <div class="controls"> 
+      <%= f.check_box :email_favorites %>
+    </div>
+  </div>  
+  <div class="control-group">
     <div class="controls">
       <%= f.label :email_favorites, class: 'checkbox' do %>
         <%= f.check_box :email_favorites %> Be notified for new comments on your favorites
