@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
 
   attr_accessible :body, :title, :topic, :image
 
+  mount_uploader :image, ImageUploader
+
   default_scope order('rank DESC')
   scope :public, lambda { |user| user ? scoped : joins(:topic).where('topics.public = true') }
   
@@ -17,8 +19,6 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
 
   after_create :create_vote
-
-  mount_uploader :image, ImageUploader
 
   def up_votes
     self.votes.where(value: 1).count
