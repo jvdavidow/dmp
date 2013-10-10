@@ -4,7 +4,10 @@ class FavoritesController < ApplicationController
     @post = @topic.posts.find(params[:post_id])
 
     authorize! :create, Favorite, message: "You cannot do that"
-    if current_user.favorites.create(post: @post)
+
+    favorite = current_user.favorites.create(post: @post)
+    
+    if favorite.valid?
       flash[:notice] = "Favorited post"
       redirect_to [@topic, @post]
     else
