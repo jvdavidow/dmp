@@ -21,4 +21,5 @@ public/uploads
 /config/application.yml
 
 # Ignore SENDGRID username and password
+config/initializers/setup_mail.rb
 config/initializers/setup_mail_production.rb
