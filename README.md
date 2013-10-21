@@ -1,4 +1,4 @@
-In production at ...
+In production at http://fathomless-coast-2778.herokuapp.com/
 
 
 the Diabetes Mapping Project
@@ -26,7 +26,9 @@ a contact page
 The about is simple, very clear and direct: create an ANONYMOUS profile, donate data by uploading photos (img uploader) or just posting your numbers (text), and play around by commenting or upvoting.
 
 
-TODO: ...
+TODO: 
+* profile page
+
 
 
 
