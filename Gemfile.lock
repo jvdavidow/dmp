@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jackdempsey/omniauth-reddit.git
+  revision: fccf32dfd56cdafa4336626a72dc9d80b5a79fc0
+  specs:
+    omniauth-reddit (0.0.1)
+      omniauth-oauth2 (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,8 +70,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    faraday (0.8.7)
-      multipart-post (~> 1.1)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     ffi (1.8.1)
     figaro (0.6.4)
       bundler (~> 1.0)
@@ -128,8 +135,6 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-facebook (1.4.1)
-      omniauth-oauth2 (~> 1.1.0)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -233,7 +238,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   omniauth
-  omniauth-facebook
+  omniauth-reddit!
   pg
   rails (= 3.2.12)
   redcarpet

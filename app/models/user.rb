@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:reddit]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :avatar_cache
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
 
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+  def self.find_for_reddit_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
       pass = Devise.friendly_token[0,20]
